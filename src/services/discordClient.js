@@ -1,6 +1,8 @@
 const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
 const config = require("../config/config");
 const websocketServer = require("./websocketServer");
+const UserService = require("../../infra/services/userService");
+const { sendJoinWebhook } = require("../../webhooks/joinsWebhook");
 const {
   processSpotifyActivity,
   processGeneralActivities,
@@ -14,9 +16,10 @@ const client = new Client({
   ],
 });
 
+const userService = new UserService();
 const presenceCache = new Map();
 
-client.once("ready", () => {
+client.once("ready", async () => {
   console.log(`${client.user.tag} online!`);
   client.user.setPresence({
     activities: [
@@ -30,6 +33,54 @@ client.once("ready", () => {
   setInterval(() => {
     checkAllPresences();
   }, 3000);
+
+  try {
+    const mainGuild = client.guilds.cache.get(config.MAIN_GUILD);
+    if (mainGuild) {
+      await mainGuild.members.fetch();
+      const memberIds = mainGuild.members.cache
+        .filter((m) => !m.user.bot)
+        .map((m) => m.user.id);
+      await userService.populateUsers(memberIds);
+    }
+  } catch (error) {
+    console.error("Error populating users on startup:", error);
+  }
+});
+
+client.on("guildMemberAdd", async (member) => {
+  if (member.user.bot) return;
+  if (member.guild.id !== config.MAIN_GUILD) return;
+
+  try {
+    const exists = await userService.getUserByDiscordId(member.user.id);
+    if (!exists) {
+      await userService.registerUser(member.user.id);
+      console.log(`Registered new user ${member.user.id}`);
+      const avatarUrl = member.user.displayAvatarURL({ extension: "png", size: 128 });
+      await sendJoinWebhook(member.user.id, avatarUrl);
+    } else {
+      console.log(`User ${member.user.id} already in database, skipping registration`);
+    }
+  } catch (error) {
+    console.error(`Error registering new user ${member.user.id}:`, error);
+  }
+});
+
+client.on("guildMemberRemove", async (member) => {
+  if (member.user.bot) return;
+  if (member.guild.id !== config.MAIN_GUILD) return;
+
+  try {
+    const exists = await userService.getUserByDiscordId(member.user.id);
+    if (exists) {
+      const avatarUrl = member.user.displayAvatarURL({ extension: "png", size: 128 });
+      await userService.deleteUserByDiscordId(member.user.id, avatarUrl);
+      console.log(`Deleted user ${member.user.id} from database`);
+    }
+  } catch (error) {
+    console.error(`Error deleting user ${member.user.id}:`, error);
+  }
 });
 
 function checkAllPresences() {
@@ -53,13 +104,11 @@ function checkAllPresences() {
 function hasPresenceChanged(oldPresence, newPresence) {
   const oldSerialized = serializePresence(oldPresence);
   const newSerialized = serializePresence(newPresence);
-
   return JSON.stringify(oldSerialized) !== JSON.stringify(newSerialized);
 }
 
 function serializePresence(presence) {
   if (!presence) return null;
-
   return {
     status: presence.status,
     activities:
@@ -103,7 +152,6 @@ client.on("presenceUpdate", (oldPresence, newPresence) => {
   }
 
   presenceCache.set(userId, serializePresence(newPresence));
-
   broadcastPresenceUpdate(userId, newPresence);
 });
 

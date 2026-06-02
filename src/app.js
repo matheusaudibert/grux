@@ -6,6 +6,7 @@ const client = require("./services/discordClient");
 const websocketServer = require("./services/websocketServer");
 const userRoutes = require("./routes/userRoutes");
 const activityRoutes = require("./routes/quickRoutes/activityRoutes");
+const connectDB = require("../infra/database/connection");
 
 const app = express();
 const server = http.createServer(app);
@@ -13,6 +14,8 @@ const PORT = config.PORT;
 
 app.use(cors());
 app.use(express.json());
+
+connectDB().catch((err) => console.error("MongoDB connection error:", err));
 
 websocketServer.initialize(server);
 
@@ -51,7 +54,7 @@ app.use("/activity", activityRoutes);
 
 server.listen(PORT, () => {
   console.log(
-    `API running on http://localhost:${PORT}/user/1274150219482660897`
+    `API running on http://localhost:${PORT}/user/161092845040566272`
   );
   console.log(`WebSocket server running on ws://localhost:${PORT}`);
 });

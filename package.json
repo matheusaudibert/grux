@@ -8,12 +8,15 @@
   },
   "dependencies": {
     "apicache": "^1.6.3",
+    "axios": "^1.16.1",
     "cors": "^2.8.5",
     "discord.js": "^14.0.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.1",
+    "form-data": "^4.0.5",
     "memory-cache": "^0.2.0",
     "mongodb": "^6.17.0",
+    "mongoose": "^9.6.3",
     "node-fetch": "^2.6.1",
     "whatwg-url": "^14.1.0"
   },

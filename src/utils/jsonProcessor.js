@@ -12,7 +12,7 @@ const checkUserInGuilds = async (client, USER_ID) => {
     if (member) {
       return { isUserFound: true, member };
     }
-  } catch (error) {}
+  } catch (error) { }
 
   return { isUserFound: false, member: null };
 };
@@ -109,11 +109,11 @@ const processSmallImage = (image, applicationId) => {
 const processBadges = (badgesData) => {
   return badgesData
     ? badgesData.map((badge) => ({
-        id: badge.id,
-        description: badge.description,
-        asset: badge.icon,
-        badge_image: `https://cdn.discordapp.com/badge-icons/${badge.icon}.png`,
-      }))
+      id: badge.id,
+      description: badge.description,
+      asset: badge.icon,
+      badge_image: `https://cdn.discordapp.com/badge-icons/${badge.icon}.png`,
+    }))
     : [];
 };
 
@@ -145,14 +145,14 @@ const processProfileInfo = (member, userData) => {
     device: member.presence?.clientStatus?.desktop
       ? "desktop"
       : member.presence?.clientStatus?.mobile
-      ? "mobile"
-      : member.presence?.clientStatus?.web
-      ? "web"
-      : null,
+        ? "mobile"
+        : member.presence?.clientStatus?.web
+          ? "web"
+          : null,
     id: member.user.id,
     creation_date: getCreation(member.user.id),
     username: member.user.username,
-    display_name: member.user.globalName,
+    display_name: member.user.globalName || member.user.username,
     link: `https://discord.com/users/${member.user.id}`,
     avatar: member.user.avatar,
     avatar_image: member.user.displayAvatarURL({
@@ -163,6 +163,7 @@ const processProfileInfo = (member, userData) => {
       ? `https://cdn.discordapp.com/avatar-decoration-presets/${member.user.avatarDecorationData.asset}.png`
       : null,
     nameplate_image,
+    bio: userData.bio || null,
     public_flags: member.user.flags.bitfield,
     badges: processBadges(userData.badges),
     clan: processClan(userData.clan),
