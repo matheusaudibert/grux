@@ -27,42 +27,48 @@ That's all you need to do!
     "profile": {
       "bot": false,
       "device": "desktop",
-      "id": "1274150219482660897",
-      "creation_date": "2024-08-16T23:38:04.891Z",
-      "username": "grwx",
-      "display_name": "Audibert",
-      "link": "https://discord.com/users/1274150219482660897",
-      "avatar": "6c9747063de19030c95daa80c1ca61c7",
-      "avatar_image": "https://cdn.discordapp.com/avatars/1274150219482660897/6c9747063de19030c95daa80c1ca61c7.png?size=1024",
+      "id": "161092845040566272",
+      "creation_date": "2016-03-20T12:45:27.218Z",
+      "username": "audibert",
+      "display_name": "audibert",
+      "link": "https://discord.com/users/161092845040566272",
+      "avatar": "cb8ad71d793e63137589dace9495f5f5",
+      "avatar_image": "https://cdn.discordapp.com/avatars/161092845040566272/cb8ad71d793e63137589dace9495f5f5.png?size=1024",
       "avatar_decoration_image": null,
-      "nameplate_image": "https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates/twilight/static.png",
+      "nameplate_image": "https://cdn.discordapp.com/assets/collectibles/nameplates/gothica/nevermore/static.png",
+      "bio": "https://instagram.com/tlvzaudibert",
+      "public_flags": 0,
       "badges": [
         {
-          "id": "active_developer",
-          "description": "Active Developer",
-          "asset": "6bdc42827a38498929a4920da12695d9",
-          "badge_image": "https://cdn.discordapp.com/badge-icons/6bdc42827a38498929a4920da12695d9.png"
+          "id": "premium_tenure_6_month_v2",
+          "description": "Earned Nov 13, 2025. 6 months: Gold",
+          "asset": "2895086c18d5531d499862e41d1155a6",
+          "badge_image": "https://cdn.discordapp.com/badge-icons/2895086c18d5531d499862e41d1155a6.png"
         },
         {
-          "id": "quest_completed",
-          "description": "Completed a Quest",
-          "asset": "7d9ae358c8c5e118768335dbe68b4fb8",
-          "badge_image": "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png"
-        },
-        {
-          "id": "orb_profile_badge",
-          "description": "Collected the Orb Profile Badge",
-          "asset": "83d8a1eb09a8d64e59233eec5d4d5c2d",
-          "badge_image": "https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png"
+          "id": "guild_booster_lvl2",
+          "description": "Server boosting since Mar 11, 2026",
+          "asset": "0e4080d1d333bc7ad29ef6528b6f2fb7",
+          "badge_image": "https://cdn.discordapp.com/badge-icons/0e4080d1d333bc7ad29ef6528b6f2fb7.png"
         }
       ],
       "clan": {
-        "tag": "CODE",
-        "identity_guild_id": "1112920281367973900",
-        "asset": "b8161e357e4c3de4fb7c649b3523a1ea",
-        "clan_image": "https://cdn.discordapp.com/clan-badges/1112920281367973900/b8161e357e4c3de4fb7c649b3523a1ea.png"
+        "tag": "SaaS",
+        "identity_guild_id": "1207358526586888272",
+        "asset": "98f6e414c8e480da76f95fecace420a9",
+        "clan_image": "https://cdn.discordapp.com/clan-badges/1207358526586888272/98f6e414c8e480da76f95fecace420a9.png"
       },
       "connected_accounts": [
+        {
+          "type": "spotify",
+          "name": "audibert",
+          "link": "https://open.spotify.com/user/31w2axshoydaipmkuz6xvu337egq"
+        },
+        {
+          "type": "steam",
+          "name": "audibert",
+          "link": "https://steamcommunity.com/profiles/76561198785853345"
+        },
         {
           "type": "youtube",
           "name": "audibert",
@@ -70,35 +76,22 @@ That's all you need to do!
         }
       ]
     },
-    "status": "online",
-    "spotify": {
-      "type": "Listening to Spotify",
-      "name": "Spotify",
-      "song": "90mph",
-      "artist": "JBEE, Sillage",
-      "album": "90mph",
-      "album_image": "https://i.scdn.co/image/ab67616d0000b2737aee7c56bd63016a79ddc9d1",
-      "link": "https://open.spotify.com/track/6uT2TsDrCrXue7ROEfNeGN",
-      "timestamps": {
-        "start": 1750873861045,
-        "end": 1750874008612
-      },
-      "created_at": 1750873861499
-    },
+    "status": "idle",
+    "spotify": null,
     "activity": [
       {
         "type": "Playing",
         "name": "Visual Studio Code",
-        "state": "Workspace: audibert",
+        "state": "Workspace: grux",
         "details": "Editing README.md",
         "largeText": "Editing a MARKDOWN file",
         "largeImage": "https://cdn.discordapp.com/app-assets/383226320970055681/1359299128655347824.png",
         "smallText": "Visual Studio Code",
         "smallImage": "https://cdn.discordapp.com/app-assets/383226320970055681/1359299466493956258.png",
         "timestamps": {
-          "start": 1750865485922
+          "start": 1780332745129
         },
-        "created_at": 1750873791410
+        "created_at": 1780374053053
       }
     ]
   },
