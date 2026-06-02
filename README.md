@@ -4,9 +4,9 @@ Grux is a service that makes it easy to access Discord profile and presence info
 
 ## Get Started
 
-1. Join my [Discord server](https://discord.gg/gu7sKjwEz5).
+1. Join my [Discord server](https://discord.gg/8j3bHRhSVp).
 
-[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?buttonText=Join%20now%20to%20access%20the%20API&t={timestamp})](https://discord.gg/gu7sKjwEz5)
+[![Discord Server Card](https://cardzera.audibert.dev/api/1383718526694461532?buttonText=Join%20now%20to%20access%20the%20API&t={timestamp})](https://discord.gg/8j3bHRhSVp)
 
 2. Your presence will be available at the API endpoint.
 

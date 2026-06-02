@@ -45,7 +45,7 @@ router.get("/:id", async (req, res) => {
         404,
         "user_not_monitored",
         "User is not being monitored by Grux",
-        { discord_invite: "https://discord.gg/gu7sKjwEz5" }
+        { discord_invite: "https://discord.gg/8j3bHRhSVp" }
       );
     }
 

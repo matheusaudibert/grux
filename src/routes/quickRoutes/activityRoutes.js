@@ -18,7 +18,7 @@ router.get("/:id", async (req, res) => {
         error: {
           code: "user_not_monitored",
           message: "User is not being monitored by Grux",
-          discord_invite: "https://discord.gg/gu7sKjwEz5",
+          discord_invite: "https://discord.gg/8j3bHRhSVp",
         },
         success: false,
       });

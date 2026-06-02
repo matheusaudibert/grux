@@ -32,7 +32,7 @@ app.get("/", async (req, res) => {
     res.json({
       data: {
         info: "Grux provides Discord presences as an API. Find out more here: https://github.com/matheusaudibert/grux",
-        discord_invite: "https://discord.gg/gu7sKjwEz5",
+        discord_invite: "https://discord.gg/8j3bHRhSVp",
         monitored_user_count: humanMemberCount,
       },
       success: true,
